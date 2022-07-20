@@ -14,9 +14,9 @@ public class Book {
 	
 	public void print_info() {
 		System.out.println("---------------------------");
-		System.out.println("�̸� : "+this.name);
-		System.out.println("�۰� : "+this.writer);
-		System.out.println("ID : "+this.ID);
+		System.out.println("책 이름 : "+this.name);
+		System.out.println("작가 : "+this.writer);
+		System.out.println("ID : "+this.ID); //책 번호
 		System.out.println("---------------------------");
 	}
 
