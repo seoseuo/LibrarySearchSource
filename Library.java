@@ -2,18 +2,18 @@ package library;
 
 public class Library {
 
-	public static final int BOOK_DEFAULT_MAX = 10;
+	public static final int BOOK_DEFAULT_MAX = 10; //디폴트 길이
 	public static final int ARRAY_INCREASE_RATE = 2;
 	
-	private Book[] book_list;
-	private int num_of_book;
+	private Book[] book_list; //객체배열 생성
+	private int num_of_book; //책 개수 count
 	
 	public Library() {
 		book_list = new Book[BOOK_DEFAULT_MAX];
 		num_of_book = 0;
 	}
 	
-	public void add_book(String name, String writer, int ID) {
+	public void add_book(String name, String writer, int ID) { //책 추가 기능 : 입력한 정보를 객체화 시켜서 객체배열에 저장
 		
 		if(num_of_book==BOOK_DEFAULT_MAX) {
 			book_list = newBookList(book_list);
@@ -24,7 +24,7 @@ public class Library {
 		
 	}
 	
-	public void add_book(Book newBook) {
+	public void add_book(Book newBook) { //book 객체 자체를 add
 		
 		if(num_of_book==BOOK_DEFAULT_MAX) {
 			book_list = newBookList(book_list);
@@ -36,14 +36,14 @@ public class Library {
 		
 	}
 		
-	public void print_book() {
+	public void print_book() { //출력
 		for(int i=0; i<num_of_book; i++) {
 			book_list[i].print_info();
 	
 		}
 	}
 	
-	private Book[] newBookList(Book[] old_book_list) {
+	private Book[] newBookList(Book[] old_book_list) { //책 count == length 새로운 library로 변경 (길이증가)
 		Book new_book_list[] =new Book[old_book_list.length*ARRAY_INCREASE_RATE]; 
 		
 		for(int i=0; i<=old_book_list.length; i++) {
@@ -52,7 +52,7 @@ public class Library {
 		return new_book_list;
 	}
 	
-	public Book find_book(String name) {
+	public Book find_book(String name) { //책 이름으로 검색
 		Book find_result = null;
 		System.out.println("Book Name : " +name);
 		
@@ -64,7 +64,7 @@ public class Library {
 		return find_result;
 	}
 	
-	public Book find_book(int ID) {
+	public Book find_book(int ID) { //id로 검색
 		Book find_result = null;
 		System.out.println("Book Name : " +ID);
 		
@@ -76,7 +76,7 @@ public class Library {
 		return find_result;
 	}
 	
-	public Library find_writer(String writer) {
+	public Library find_writer(String writer) { //작가로 검색
 		System.out.println("Book Writer : " +writer);
 		Library f_lib_list = new Library();
 		
@@ -88,7 +88,7 @@ public class Library {
 		return f_lib_list;
 	}
 	
-	public void sort_ID() {
+	public void sort_ID() { //id순으로 오름차순
 		
 		Book temp;
 		
@@ -103,7 +103,7 @@ public class Library {
 		}
 	}
 	
-	public void reverse_book_list() {
+	public void reverse_book_list() { //역순으로
 		Book r_list[] = new Book[num_of_book];
 
 		int cnt = 0;
@@ -116,15 +116,15 @@ public class Library {
 		
 	
 
-	public void changeBookName(String oldName, String newName) {
+	public void changeBookName(String oldName, String newName) { //책 이름 바꾸기
 		find_book(oldName).change_name(newName);
 			}
 	
-	public void changeBookID(int oldID,int newID) {
+	public void changeBookID(int oldID,int newID) { //
 		find_book(oldID).change_ID(newID);
 	}
 	
-	public void changeBookWriter(String oldWriter, String newWriter) {
+	public void changeBookWriter(String oldWriter, String newWriter) { //
 
 			Library fw_lib = find_writer(oldWriter);
 			
